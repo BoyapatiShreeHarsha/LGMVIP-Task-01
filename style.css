@@ -1,9 +1,12 @@
+
 body {
-    background-image: radial-gradient(circle, #ffffff, #efdcf8, #efb5e2, #f689bb, #f65a83);
+    background: linear-gradient(to top, #f65a83, #fb809f, #ffa2ba, #ffc3d3, #ffe3eb) top right no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    height: 100%;
 }
 
 #container {
@@ -64,16 +67,17 @@ body {
     font-weight: bold;
 }
 
-.note{
+.note {
     display: flex;
     margin: 6px 0px;
 }
-.date{
+
+.date {
     font-size: medium;
     margin: 0px 0px;
 }
 
-span{
+span {
     cursor: pointer;
 }
 
@@ -142,28 +146,27 @@ span{
     pointer-events: all;
 }
 
-.form{
+.form {
     max-width: 500px;
     display: flex;
     flex-direction: column;
     font-size: 26px;
     font-weight: bold;
-    margin:4px 0px;
+    margin: 4px 0px;
     padding: 14px;
 }
 
-.form>input{
+.form>input {
     display: block;
     margin: 7px;
     border: 0.5px solid #F65A83;
     font-size: 21px;
 }
 
-.form>button{
+.form>button {
     background-color: #F65A83;
     max-width: 86px;
     font-size: 21px;
     font-weight: bold;
-    margin:4px 0px;
+    margin: 4px 0px;
 }
-

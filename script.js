@@ -1,3 +1,5 @@
+//working of modals
+
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
 
@@ -22,6 +24,10 @@ closeModalButtons.forEach(button => {
         closeModal(modal);
     })
 })
+
+//completed
+
+//CRUD
 
 window.onload = () => {
     if (localStorage.length !== 0) {
@@ -60,8 +66,13 @@ window.onload = () => {
         let k = 0;
         Object.keys(localStorage).forEach(function (key) {
             let index = localStorage.getItem(key).indexOf("@");
-            let value = localStorage.getItem(key).slice(0, index);
+            let value;
+            if(index===0)
+            value="";
+            else
+            value = localStorage.getItem(key).slice(0, index);
             let date = localStorage.getItem(key).slice(index + 1);
+            if(value!=="")
             key += ":";
             if (todayDate !== date) {
                 let note = document.createElement("div");
@@ -103,7 +114,9 @@ let Delete1 = (num) => {
     let span = child.firstElementChild;
     console.log(span);
     let text = span.innerHTML;//key value
-    console.log(text);
+    // console.log(text);
+    if(index==-1)
+    index=text.length;
     let index = text.indexOf(":");
     let key = text.slice(0, index);
     child.innerHTML = `<del>${text}</del>`;
@@ -117,13 +130,21 @@ let Delete1 = (num) => {
     }, 1000);
 }
 
+//on clicking on the text
+
 let edit = (num) => {
     let span = document.getElementById(num);
     let text = span.innerHTML;
     let index = text.indexOf(":");
+    if(index===-1)
+    index=text.length;
     let old_key = text.slice(0, index);
     let index1 = localStorage.getItem(old_key).indexOf("@");
-    let old_value = localStorage.getItem(old_key).slice(0, index1);
+    let old_value;
+    if(index1==0)
+    old_value="";
+    else
+    old_value = localStorage.getItem(old_key).slice(0, index1);
     let date = localStorage.getItem(old_key).slice(index1);
     let modal = document.getElementById('modal2');
     modal.classList.add('active');
@@ -145,8 +166,11 @@ form2.addEventListener('submit', (ev) => {
     let old_key = document.getElementById('old_key').value;
     localStorage.removeItem(old_key);
     let value = document.getElementById('new_dis').value;
-    let date = document.getElementById('date').value
-    span.innerHTML = `${key}:${value}`;
+    let date = document.getElementById('date').value;
+    let key1=key;
+    if(value!=="")
+    key1+=":";
+    span.innerHTML = `${key1}${value}`;
     value += date;
     localStorage.setItem(key, value);
     const modal = document.getElementById('modal2');
@@ -154,7 +178,7 @@ form2.addEventListener('submit', (ev) => {
 });
 
 
-//function to delete the note
+//function to delete the note in today
 let Delete = async (num) => {
     let button = document.getElementById(num);
     let parent = button.parentElement;//note div
@@ -162,6 +186,8 @@ let Delete = async (num) => {
     let child = parent.lastElementChild; //span
     let text = child.innerHTML;
     let index = text.indexOf(":");
+    if(index==-1)
+    index=text.length;
     let key = text.slice(0, index);
     child.innerHTML = `<del>${text}</del>`;
     button.style.backgroundColor = '#F65A83';
@@ -175,7 +201,7 @@ let Delete = async (num) => {
 
 }
 
-
+//for "Do you want to add new note"
 const form1 = document.getElementById('form1');
 
 form1.addEventListener('submit', (ev) => {
