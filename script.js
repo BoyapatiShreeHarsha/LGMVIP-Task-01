@@ -115,9 +115,9 @@ let Delete1 = (num) => {
     console.log(span);
     let text = span.innerHTML;//key value
     // console.log(text);
+    let index = text.indexOf(":");
     if(index==-1)
     index=text.length;
-    let index = text.indexOf(":");
     let key = text.slice(0, index);
     child.innerHTML = `<del>${text}</del>`;
     button.style.backgroundColor = '#F65A83';
