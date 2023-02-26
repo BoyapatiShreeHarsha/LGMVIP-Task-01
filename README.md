@@ -1,7 +1,7 @@
 # Todolist
 A static application created using only HTML,CSS and Js
 
-IN this use can create , edit ,delete and display your tasks
+In this you use can create , edit ,delete and display your tasks
 
 ![img-1](https://user-images.githubusercontent.com/110366987/221388381-e49a47bf-7933-495b-a8a4-1acb99553fa7.jpg)
 
